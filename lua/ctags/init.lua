@@ -105,4 +105,16 @@ function M.update() -- {{{
 end
 -- }}}
 
+function M.setup(opt)
+    local augroup = vim.api.nvim_create_augroup('ctags.nvim', {clear = true})
+    opt = opt or {}
+    vim.api.nvim_create_autocmd(opt.events or {'BufWritePost'}, {
+        pattern = {'*'},
+        group = augroup,
+        callback = function()
+            require('ctags').update()
+        end
+    })
+end
+
 return M
