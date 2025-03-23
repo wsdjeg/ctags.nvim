@@ -15,6 +15,7 @@ local f = require('util')
 local version_checked = false
 local gtags_ctags_bin = 'ctags'
 local is_u_ctags = false
+local ctags_cache_dir = vim.fn.stdpath('data') .. '/ctags.nvim/'
 
 local function version_std_out(id, data, event) -- {{{
   for _, line in ipairs(data) do
@@ -77,7 +78,7 @@ function M.update() -- {{{
   else
     log.info('update ctags database for ' .. project_root)
   end
-  local dir = f.unify_path(vim.g.tags_cache_dir) .. f.path_to_fname(project_root)
+  local dir = f.unify_path(ctags_cache_dir) .. f.path_to_fname(project_root)
   local cmd = { gtags_ctags_bin }
   if is_u_ctags then
     table.insert(cmd, '-G')
