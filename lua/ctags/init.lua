@@ -10,7 +10,7 @@ local M = {}
 
 local log = require('ctags.logger')
 local job = require('ctags.job')
-local f = require('util')
+local f = require('ctags.util')
 
 local version_checked = false
 local gtags_ctags_bin = 'ctags'
