@@ -92,7 +92,7 @@ function M.update() -- {{{
 
 	if vim.fn.isdirectory(dir) == 1 then
 		vim.fn.delete(dir .. "/tags")
-		extend(cmd, { "-R", "--extra=+f", "-o", dir .. "/tags", project_root })
+		extend(cmd, { "-R", "--extras=+f", "-o", dir .. "/tags", project_root })
 		log.debug("ctags command:" .. vim.inspect(cmd))
 		local jobid = job.start(cmd, {
 			on_stdout = on_update_stdout,
@@ -104,7 +104,7 @@ function M.update() -- {{{
 		end
 	end
 end
--- }}}
+--}}}
 
 function M.setup(opt)
 	local augroup = vim.api.nvim_create_augroup("ctags.nvim", { clear = true })
