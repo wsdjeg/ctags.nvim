@@ -5,13 +5,18 @@ ctags integration for neovim
 ## Installation
 
 ```lua
-require("plug").add({
-	{
-		"wsdjeg/ctags.nvim",
-		config = function()
-			require("ctags").setup({})
-		end,
-	},
+require('plug').add({
+  {
+    'wsdjeg/ctags.nvim',
+    config = function()
+      require('ctags').setup({})
+    end,
+    depends = {
+      {
+        'wsdjeg/job.nvim',
+      },
+    },
+  },
 })
 ```
 ## Usage
@@ -19,18 +24,21 @@ require("plug").add({
 generate tag files when project changed:
 
 ```lua
-require("plug").add({
-	{
-		"wsdjeg/ctags.nvim",
-		config = function()
-			require("rooter").reg_callback(require("ctags").update)
-		end,
-		depends = {
-			{
-				"wsdjeg/rooter.nvim",
-			},
-		},
-	},
+require('plug').add({
+  {
+    'wsdjeg/ctags.nvim',
+    config = function()
+      require('rooter').reg_callback(require('ctags').update)
+    end,
+    depends = {
+      {
+        'wsdjeg/job.nvim',
+      },
+      {
+        'wsdjeg/rooter.nvim',
+      },
+    },
+  },
 })
 ```
 
@@ -57,6 +65,11 @@ require('plug').add({
         vim.o.tags = table.concat(tags, ',')
       end
     end,
+    depends = {
+      {
+        'wsdjeg/job.nvim',
+      },
+    },
   },
 })
 ```

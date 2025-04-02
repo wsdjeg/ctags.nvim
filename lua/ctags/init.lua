@@ -9,7 +9,7 @@
 local M = {}
 
 local log = require("ctags.logger")
-local job = require("ctags.job")
+local job = require("job")
 local f = require("ctags.util")
 local config = require("ctags.config")
 
