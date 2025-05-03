@@ -19,6 +19,7 @@ require('plug').add({
   },
 })
 ```
+
 ## Usage
 
 generate tag files when project changed:
@@ -68,6 +69,32 @@ require('plug').add({
     depends = {
       {
         'wsdjeg/job.nvim',
+      },
+    },
+  },
+})
+```
+
+## Debug
+
+debug ctags.nvim with logger.nvim
+
+```lua
+require('plug').add({
+  {
+    'wsdjeg/ctags.nvim',
+    config = function()
+      require('rooter').reg_callback(require('ctags').update)
+    end,
+    depends = {
+      {
+        'wsdjeg/job.nvim',
+      },
+      {
+        'wsdjeg/rooter.nvim',
+      },
+      {
+        'wsdjeg/logger.nvim',
       },
     },
   },
