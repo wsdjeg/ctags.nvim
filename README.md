@@ -1,16 +1,40 @@
 # ctags.nvim
 
-ctags integration for neovim
+A lightweight Neovim plugin that integrates ctags with Neovim.
+It provides automatic tag generation, updates your tags option, and offers a simple async workflow powered by job.nvim.
 
-## Installation
+[![GitHub License](https://img.shields.io/github/license/wsdjeg/ctags.nvim)](LICENSE)
+[![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/wsdjeg/ctags.nvim)](https://github.com/wsdjeg/ctags.nvim/issues)
+[![GitHub commit activity](https://img.shields.io/github/commit-activity/m/wsdjeg/ctags.nvim)](https://github.com/wsdjeg/ctags.nvim/commits/master/)
+[![GitHub Release](https://img.shields.io/github/v/release/wsdjeg/ctags.nvim)](https://github.com/wsdjeg/ctags.nvim/releases)
+
+<!-- vim-markdown-toc GFM -->
+
+- [✨ Features](#-features)
+- [📦 Installation](#-installation)
+- [⚙️ Basic Usage](#-basic-usage)
+- [🔧 Configuration](#-configuration)
+- [📄 License](#-license)
+
+<!-- vim-markdown-toc -->
+
+## ✨ Features
+
+- Automatically generate or update tags files for the current project.
+- Asynchronously run ctags (via job.nvim) without blocking the editor.
+- Dynamically update vim.o.tags so Neovim can locate the correct tags file.
+- Works seamlessly with project-root managers such as rooter.nvim.
+- Supports all languages supported by Universal Ctags.
+- Optional debug logging with logger.nvim.
+
+## 📦 Installation
+
+Using [nvim-plug](https://github.com/wsdjeg/nvim-plug)
 
 ```lua
 require('plug').add({
   {
     'wsdjeg/ctags.nvim',
-    config = function()
-      require('ctags').setup({})
-    end,
     depends = {
       {
         'wsdjeg/job.nvim',
@@ -20,9 +44,9 @@ require('plug').add({
 })
 ```
 
-## Usage
+## ⚙️ Basic Usage
 
-generate tag files when project changed:
+Auto-update tags when project root changes:
 
 ```lua
 require('plug').add({
@@ -65,19 +89,21 @@ require('plug').add({
         table.insert(tags, dir .. '/tags')
         vim.o.tags = table.concat(tags, ',')
       end
+      require('rooter').reg_callback(update_ctags_option)
     end,
     depends = {
       {
         'wsdjeg/job.nvim',
+      },
+      {
+        'wsdjeg/rooter.nvim',
       },
     },
   },
 })
 ```
 
-## Debug
-
-debug ctags.nvim with logger.nvim
+Enable debugging:
 
 ```lua
 require('plug').add({
@@ -100,3 +126,25 @@ require('plug').add({
   },
 })
 ```
+
+## 🔧 Configuration
+
+All configuration is done through:
+
+```lua
+require('ctags').setup({
+  cache_dir = vim.fn.stdpath('data') .. '/ctags.nvim/',
+})
+```
+
+Available Options (examples):
+
+| Option           | Type    | Description                                      |
+| ---------------- | ------- | ------------------------------------------------ |
+| cache_dir        | string  | Directory where generated tag files are stored.  |
+
+<!-- ## 🧠 Tips -->
+
+## 📄 License
+
+Licensed under GPL-3.0.
