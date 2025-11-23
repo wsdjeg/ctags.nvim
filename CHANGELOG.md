@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.0](https://github.com/wsdjeg/ctags.nvim/compare/v1.0.0...v1.1.0) (2025-11-23)
+
+
+### Features
+
+* support luarocks ([ee29021](https://github.com/wsdjeg/ctags.nvim/commit/ee29021282758cc191bb64fe67e15c9c0bf0b7a4))
+
 ## 1.0.0 (2025-10-29)
 
 
