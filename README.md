@@ -3,10 +3,12 @@
 A lightweight Neovim plugin that integrates ctags with Neovim.
 It provides automatic tag generation, updates your tags option, and offers a simple async workflow powered by job.nvim.
 
+[![Run Tests](https://github.com/wsdjeg/ctags.nvim/actions/workflows/test.yml/badge.svg)](https://github.com/wsdjeg/ctags.nvim/actions/workflows/test.yml)
 [![GitHub License](https://img.shields.io/github/license/wsdjeg/ctags.nvim)](LICENSE)
 [![GitHub Issues or Pull Requests](https://img.shields.io/github/issues/wsdjeg/ctags.nvim)](https://github.com/wsdjeg/ctags.nvim/issues)
 [![GitHub commit activity](https://img.shields.io/github/commit-activity/m/wsdjeg/ctags.nvim)](https://github.com/wsdjeg/ctags.nvim/commits/master/)
 [![GitHub Release](https://img.shields.io/github/v/release/wsdjeg/ctags.nvim)](https://github.com/wsdjeg/ctags.nvim/releases)
+[![luarocks](https://img.shields.io/luarocks/v/wsdjeg/ctags.nvim)](https://luarocks.org/modules/wsdjeg/ctags.nvim)
 
 <!-- vim-markdown-toc GFM -->
 
@@ -148,3 +150,4 @@ Available Options (examples):
 ## 📄 License
 
 Licensed under GPL-3.0.
+

@@ -1,0 +1,12 @@
+# Test dependencies (downloaded by install_deps.lua)
+test/.deps/
+
+# Swap/backup files
+*.swp
+*.swo
+*~
+*.lua~
+
+# Test output
+test/*.out
+
