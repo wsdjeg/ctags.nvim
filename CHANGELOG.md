@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.1.1](https://github.com/wsdjeg/ctags.nvim/compare/v1.1.0...v1.1.1) (2025-12-03)
+
+
+### Bug Fixes
+
+* update release-please-action ([ff6c068](https://github.com/wsdjeg/ctags.nvim/commit/ff6c068659f316eae8c348c967fea539572d850e))
+
 ## [1.1.0](https://github.com/wsdjeg/ctags.nvim/compare/v1.0.0...v1.1.0) (2025-11-23)
 
 
